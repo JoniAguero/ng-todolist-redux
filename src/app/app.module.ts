@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -25,6 +26,7 @@ import { FooterTodoComponent } from './todo-list/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ todos: todoReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
