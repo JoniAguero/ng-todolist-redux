@@ -5,7 +5,7 @@ export interface AppState {
     todos: Todo[];
 }
 
-const todo1 = new Todo('Todo1');
+const todo1 = new Todo('First work');
 
 const initialState: Todo[] = [todo1];
 
