@@ -1,10 +1,6 @@
 import { typeActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
-export interface AppState {
-    todos: Todo[];
-}
-
 const todo1 = new Todo('First work');
 
 const initialState: Todo[] = [todo1];

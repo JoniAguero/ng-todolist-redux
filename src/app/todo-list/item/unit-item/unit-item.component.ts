@@ -2,8 +2,9 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Todo } from '../../model/todo.model';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../todo.reduce';
+
 import { ToggleTodoAction, EditTodoAction, DeleteTodoAction } from '../../todo.actions';
+import { AppState } from '../../../app.reducer';
 
 @Component({
   selector: 'app-unit-item',
