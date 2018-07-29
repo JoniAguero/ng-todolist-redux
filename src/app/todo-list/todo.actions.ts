@@ -11,7 +11,7 @@ export class AddTodoAction implements Action {
 }
 export class ToggleTodoAction implements Action {
     readonly type = TOGGLE_TODO;
-    constructor(public id: number) { }
+    constructor(public id: number, public estado: string) { }
 }
 export class EditTodoAction implements Action {
     readonly type = EDIT_TODO;
@@ -22,7 +22,7 @@ export class DeleteTodoAction implements Action {
     constructor(public id: number) { }
 }
 
-export type typeActions =
+export type todoActions =
     AddTodoAction |
     ToggleTodoAction |
     EditTodoAction |

@@ -27,7 +27,8 @@ export class UnitItemComponent implements OnInit {
     this.inputText = new FormControl(this.todo.texto, Validators.required);
 
     this.checkField.valueChanges.subscribe( () => {
-      const action = new ToggleTodoAction(this.todo.id);
+      console.log(this.checkField.value);
+      const action = new ToggleTodoAction(this.todo.id, this.checkField.value);
       this.store.dispatch(action);
     });
 

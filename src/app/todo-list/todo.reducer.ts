@@ -1,11 +1,11 @@
-import { typeActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './todo.actions';
+import { todoActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 const todo1 = new Todo('First work');
 
 const initialState: Todo[] = [todo1];
 
-export function todoReducer(state: Todo[] = initialState, action: typeActions) {
+export function todoReducer(state: Todo[] = initialState, action: todoActions): Todo[] {
     switch (action.type) {
         case ADD:
             const todo = new Todo(action.texto);
@@ -15,7 +15,7 @@ export function todoReducer(state: Todo[] = initialState, action: typeActions) {
                 if (editTodo.id === action.id) {
                     return {
                         ...editTodo,
-                        estado: !editTodo.estado
+                        estado: action.estado
                     };
                 } else {
                     return editTodo;
