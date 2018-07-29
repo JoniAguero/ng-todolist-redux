@@ -1,4 +1,4 @@
-import { typeActions, ADD, TOGGLE_TODO, EDIT_TODO } from './todo.actions';
+import { typeActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 export interface AppState {
@@ -36,6 +36,9 @@ export function todoReducer(state: Todo[] = initialState, action: typeActions) {
                     return editTodo;
                 }
             });
+        case DELETE_TODO:
+            // tslint:disable-next-line:no-shadowed-variable
+            return state.filter( (todo: Todo) => todo.id !== action.id );
 
         default:
             return state;
