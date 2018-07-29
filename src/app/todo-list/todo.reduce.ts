@@ -1,4 +1,4 @@
-import { typeActions, ADD } from './todo.actions';
+import { typeActions, ADD, TOGGLE_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 export interface AppState {
@@ -14,7 +14,18 @@ export function todoReducer(state: Todo[] = initialState, action: typeActions) {
         case ADD:
             const todo = new Todo(action.texto);
             return [...state, todo];
-
+        case TOGGLE_TODO:
+            return state.map(editTodo => {
+                if (editTodo.id === action.id) {
+                    return {
+                        ...editTodo,
+                        estado: !editTodo.estado
+                    };
+                } else {
+                    return editTodo;
+                }
+            });
+            break;
         default:
             return state;
     }

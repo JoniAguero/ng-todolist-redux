@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Todo } from '../model/todo.model';
-import { AddTodo } from '../todo.actions';
+import { AddTodoAction } from '../todo.actions';
 import { AppState } from '../todo.reduce';
 
 @Component({
@@ -20,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   addTodo() {
     if (this.todoText.valid) {
-      const todo = new AddTodo(this.todoText.value);
+      const todo = new AddTodoAction(this.todoText.value);
       this.store.dispatch(todo);
     }
   }

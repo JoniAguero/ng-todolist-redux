@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Todo } from '../../model/todo.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../todo.reduce';
+import { ToggleTodoAction } from '../../todo.actions';
 
 @Component({
   selector: 'app-unit-item',
@@ -19,13 +20,15 @@ export class UnitItemComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    console.log(this.todo);
+    
     this.checkField = new FormControl(this.todo.estado);
     this.inputText = new FormControl(this.todo.texto, Validators.required);
-  }
 
-  changeCheck() {
-    console.log(this.checkField.value);
+    this.checkField.valueChanges.subscribe( () => {
+      const action = new ToggleTodoAction(this.todo.id);
+      this.store.dispatch(action);
+    });
+
   }
 
 }
