@@ -13,6 +13,7 @@ import { MainComponent } from './todo-list/main/main.component';
 import { ItemComponent } from './todo-list/item/item.component';
 import { HeaderComponent } from './todo-list/header/header.component';
 import { FooterTodoComponent } from './todo-list/footer/footer.component';
+import { UnitItemComponent } from './todo-list/item/unit-item/unit-item.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FooterTodoComponent } from './todo-list/footer/footer.component';
     MainComponent,
     ItemComponent,
     HeaderComponent,
-    FooterTodoComponent
+    FooterTodoComponent,
+    UnitItemComponent
   ],
   imports: [
     BrowserModule,
