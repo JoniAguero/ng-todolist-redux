@@ -8,10 +8,12 @@
            [formControl]="checkField"
            [checked]="todo.estado">
 
-    <label>{{todo.texto}}</label>
+    <label (dblclick)="edit()">{{todo.texto}}</label>
 
     <button class="destroy"></button>
   </div>
   <input class="edit" 
-         [formControl]="inputText">
+         [formControl]="inputText"
+         #inputTextEdit
+         (blur)="finishEdit()">
 </li>

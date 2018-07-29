@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Todo } from '../../model/todo.model';
 import { Store } from '@ngrx/store';
@@ -12,6 +12,7 @@ import { ToggleTodoAction } from '../../todo.actions';
 export class UnitItemComponent implements OnInit {
 
   @Input() todo: Todo;
+  @ViewChild('inputTextEdit') inputTextEdit: ElementRef;
 
   isEditing: boolean;
   checkField: FormControl;
@@ -29,6 +30,17 @@ export class UnitItemComponent implements OnInit {
       this.store.dispatch(action);
     });
 
+  }
+
+  edit() {
+    this.isEditing = true;
+    setTimeout(() => {
+      this.inputTextEdit.nativeElement.select();
+    }, 1);
+  }
+
+  finishEdit() {
+    this.isEditing = false;
   }
 
 }
