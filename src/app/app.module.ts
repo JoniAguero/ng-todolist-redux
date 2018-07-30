@@ -14,6 +14,7 @@ import { ItemComponent } from './todo-list/item/item.component';
 import { HeaderComponent } from './todo-list/header/header.component';
 import { FooterTodoComponent } from './todo-list/footer/footer.component';
 import { UnitItemComponent } from './todo-list/item/unit-item/unit-item.component';
+import { FilterPipe } from './filters/filter.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UnitItemComponent } from './todo-list/item/unit-item/unit-item.componen
     ItemComponent,
     HeaderComponent,
     FooterTodoComponent,
-    UnitItemComponent
+    UnitItemComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

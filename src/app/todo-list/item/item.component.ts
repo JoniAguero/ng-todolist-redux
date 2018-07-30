@@ -12,21 +12,13 @@ import { AppState } from '../../app.reducer';
 export class ItemComponent implements OnInit {
 
   todos: Todo [] = [];
+  filter: any;
 
   constructor(private store: Store<AppState>) {
     this.store.subscribe( state => {
       
-      switch (state.filter) {
-        case "pendientes":
-          this.todos = state.todos.filter ( el => !el.completado);
-          break;
-        case "completados":
-          this.todos = state.todos.filter(el => el.completado);
-          break;
-        default:
-        this.todos = state.todos;
-          break;
-      }
+      this.todos = state.todos;
+      this.filter = state.filter;
       
     });
   }

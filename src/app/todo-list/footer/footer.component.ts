@@ -44,4 +44,8 @@ export class FooterTodoComponent implements OnInit {
     this.store.dispatch(action);
   }
 
+  clearCompleted() {
+    
+  }
+
 }
