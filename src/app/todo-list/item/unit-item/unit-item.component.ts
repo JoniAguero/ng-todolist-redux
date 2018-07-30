@@ -23,7 +23,7 @@ export class UnitItemComponent implements OnInit {
 
   ngOnInit() {
     
-    this.checkField = new FormControl(this.todo.estado);
+    this.checkField = new FormControl(this.todo.completado);
     this.inputText = new FormControl(this.todo.texto, Validators.required);
 
     this.checkField.valueChanges.subscribe( () => {

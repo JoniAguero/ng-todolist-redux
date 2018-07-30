@@ -15,7 +15,7 @@ export function todoReducer(state: Todo[] = initialState, action: todoActions): 
                 if (editTodo.id === action.id) {
                     return {
                         ...editTodo,
-                        estado: action.estado
+                        completado: !editTodo.completado
                     };
                 } else {
                     return editTodo;

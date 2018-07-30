@@ -1,10 +1,9 @@
 export class Todo {
     texto: string;
-    estado: string;
+    completado: boolean;
     id: number = Math.random();
 
-    constructor(texto: string, estado: string = 'completed') {
+    constructor(texto: string) {
         this.texto = texto;
-        this.estado = estado;
     }
 }
