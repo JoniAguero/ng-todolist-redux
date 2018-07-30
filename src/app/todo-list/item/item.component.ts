@@ -15,7 +15,19 @@ export class ItemComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     this.store.subscribe( state => {
-      this.todos = state.todos;
+      
+      switch (state.filter) {
+        case "pendientes":
+          this.todos = state.todos.filter ( el => !el.completado);
+          break;
+        case "completados":
+          this.todos = state.todos.filter(el => el.completado);
+          break;
+        default:
+        this.todos = state.todos;
+          break;
+      }
+      
     });
   }
 

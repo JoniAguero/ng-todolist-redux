@@ -5,5 +5,6 @@ export class Todo {
 
     constructor(texto: string) {
         this.texto = texto;
+        this.completado = false;
     }
 }

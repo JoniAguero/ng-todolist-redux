@@ -10,9 +10,20 @@ import { AppState } from '../../app.reducer';
 })
 export class FooterTodoComponent implements OnInit {
 
+  pendientes: number;
+  filter: any;
+
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+
+    this.store.subscribe( state => {
+      
+      this.pendientes = state.todos.filter( el => !el.completado).length;
+      this.filter = state.filter;
+      
+    });
+
   }
 
   getAll() {
