@@ -1,4 +1,4 @@
-import { todoActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from './todo.actions';
+import { todoActions, ADD, TOGGLE_TODO, EDIT_TODO, DELETE_TODO, DELETE_ALL_TODO } from './todo.actions';
 import { Todo } from './model/todo.model';
 
 const todo1 = new Todo('First work');
@@ -35,6 +35,9 @@ export function todoReducer(state: Todo[] = initialState, action: todoActions): 
         case DELETE_TODO:
             // tslint:disable-next-line:no-shadowed-variable
             return state.filter( (todo: Todo) => todo.id !== action.id );
+        case DELETE_ALL_TODO:
+            // tslint:disable-next-line:no-shadowed-variable
+            return state.filter((todo: Todo) => !todo.completado );
 
         default:
             return state;
